@@ -1,38 +1,17 @@
-import React, {memo, useEffect, useState} from "react";
-import chenyuRequest from "@/services"
+import React, {memo} from "react";
+
+import {HeaderWrapper} from "components/app-header/style";
+import HomeBanner from "@/views/home/c-cpns/home-banner";
+import {HomeWrapper} from "@/views/home/style";
 
 
 const Home = memo(() => {
-    //定义状态
-    const [highScore, setHighScore] = useState({})
-
-
-    useEffect(() => {
-        chenyuRequest.get({url: "/home/highscore"}).then(res => {
-            console.log(res)
-
-            setHighScore(res)
-        })
-    }, [])
 
 
     return (
-        <div>
-            Home
-            <h2>{highScore.title}</h2>
-            <h2>{highScore.subtitle}</h2>
-            {
-                highScore.list &&
-                <ul>
-                    {highScore.list.map((item) => {
-                        return <li key={item.id}>{item.name}</li>
-                    })}
-                </ul>
-            }
-
-
-        </div>
-
+        <HomeWrapper>
+            <HomeBanner/>
+        </HomeWrapper>
     )
 })
 export default Home
