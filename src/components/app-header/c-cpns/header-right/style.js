@@ -9,8 +9,8 @@ export const HeaderRightWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: ${props => props.theme.textColor.primaryColor};
-  font-size: 14px;
+  color: ${props => props.theme.text.primaryColor};
+
   font-weight: 600;
 
 
@@ -40,13 +40,13 @@ export const HeaderRightWrapper = styled.div`
     height: 42px;
     margin-right: 24px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; 
     border-radius: 25px;
     background-color: #fff;
-    color: ${props => props.theme.textColor.primaryColor};
+    color: ${props => props.theme.text.primaryColor};
     cursor: pointer;
     //头像阴影和动画
-    ${props=> props.theme.theme.mixin.boxShadow};
+    ${props=> props.theme.mixin.boxShadow};
   }
 
 `
