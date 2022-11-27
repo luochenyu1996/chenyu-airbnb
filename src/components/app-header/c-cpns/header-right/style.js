@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import {defaultMergeProps} from "react-redux/es/connect/mergeProps";
+
+
+
 
 export const HeaderRightWrapper = styled.div`
   //  向右边靠的布局
@@ -23,6 +25,7 @@ export const HeaderRightWrapper = styled.div`
       cursor: pointer;
       border-radius: 22px;
 
+      //图标阴影
       &:hover {
         background-color: #f5f5f5;
       }
@@ -42,14 +45,8 @@ export const HeaderRightWrapper = styled.div`
     background-color: #fff;
     color: ${props => props.theme.textColor.primaryColor};
     cursor: pointer;
-
-    //头像背景和动画
-    transition: box-shadow 0.2s ease;
-
-    &:hover {
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0, 18);
-    }
-
+    //头像阴影和动画
+    ${props=> props.theme.theme.mixin.boxShadow};
   }
 
 `
