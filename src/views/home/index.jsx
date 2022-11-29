@@ -1,16 +1,41 @@
-import React, {memo} from "react";
+import React, {memo, useEffect} from "react";
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
 
-import {HeaderWrapper} from "components/app-header/style";
 import HomeBanner from "@/views/home/c-cpns/home-banner";
 import {HomeWrapper} from "@/views/home/style";
+import {fetchHomeDataAction} from "@/store/modules/home";
+import SectionHeader from "components/section-header";
 
 
 const Home = memo(() => {
+    // 从redux中获取数据
+    const {goodPriceInfo} = useSelector((state) => ({
+        goodPriceInfo: state.home.goodPriceInfo
+    }), shallowEqual)
+
+
+    //派发异步事件，发送网络请求
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchHomeDataAction("###"))
+    }, [dispatch])
 
 
     return (
         <HomeWrapper>
             <HomeBanner/>
+            <div className="content">
+                <div className='good-price'>
+                    {/*<SectionHeader title={goodPriceInfo.title}></SectionHeader>*/}
+                    {/*<ul>*/}
+                    {/*    {*/}
+                    {/*        goodPriceInfo.list.map(item => {*/}
+                    {/*        return (<li key={item.id}>{item.name}</li>)*/}
+                    {/*        })*/}
+                    {/*    }*/}
+                    {/*</ul>*/}
+                </div>
+            </div>
         </HomeWrapper>
     )
 })
