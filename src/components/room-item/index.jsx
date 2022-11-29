@@ -9,7 +9,7 @@ const RoomItem = memo((props) => {
 
 
     return (
-        <RoomItemWrapper>
+        <RoomItemWrapper verifyColor={itemData?.verify_info?.text_color || "#39576a"} >
             <div className='inner'>
                 <div className='cover'>
                     <img src={itemData.picture_url} alt=''></img>
