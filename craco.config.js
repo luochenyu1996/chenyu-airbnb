@@ -8,23 +8,24 @@ module.exports = {
     plugins: [
         {
             plugin: CracoLessPlugin,
-            // options: {
-            //     lessLoaderOptions: {
-            //         lessOptions: {
-            //             modifyVars: {'@primary-color': '#1DA57A'},
-            //             javascriptEnabled: true,
-            //         },
-            //     },
-            // },
+            options: {
+                lessLoaderOptions: {
+                    lessOptions: {
+                        modifyVars: {'@primary-color': '#1DA57A'},
+                        javascriptEnabled: true,
+                    },
+                },
+            },
+
         },
     ],
     // 别名配置
     webpack: {
         alias: {
-            // "@":path.resolve(__dirname, "src")
             "@": resolve("src"),
             "components": resolve("src/components"),
-            "utils": resolve("src/utils")
+            "utils": resolve("src/utils"),
+            // '@mui/styled-engine': '@mui/styled-engine-sc',
         }
     }
 }

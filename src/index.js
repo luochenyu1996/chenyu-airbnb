@@ -11,6 +11,7 @@ import "./assets/css/reset.less"
 import Store from "./store";
 import {ThemeProvider} from "styled-components";
 import theme from "@/assets/theme";
+import "antd/dist/antd.less"
 
 
 
