@@ -35,10 +35,9 @@ export const RoomItemWrapper = styled.div`
      color: ${props => props.verifyColor};
   }
 
-  .name {
+  .name  {
     font-size: 16px;
     font-weight: 700;
-
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -50,7 +49,7 @@ export const RoomItemWrapper = styled.div`
     margin: 8px 0;
   }
 
-  .bottom {
+  .button {
     display: flex;
     align-items: center;
     font-size: 12px;
@@ -60,10 +59,13 @@ export const RoomItemWrapper = styled.div`
     .count {
       margin: 0 2px 0 4px;
     }
-
-    .MuiRating-decimal {
+    // 这个属性根据 MUI 的源码得出
+    .MuiRating-icon {
+      font-size: 12px;
       margin-right: -2px;
+      color: #00848A;
     }
+   
   }
   
   

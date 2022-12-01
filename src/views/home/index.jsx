@@ -6,6 +6,8 @@ import {HomeWrapper} from "@/views/home/style";
 import {fetchHomeDataAction} from "@/store/modules/home";
 import SectionHeader from "components/section-header";
 import RoomItem from "components/room-item";
+import {Rating} from "@mui/material";
+
 
 
 const Home = memo(() => {
@@ -40,6 +42,9 @@ const Home = memo(() => {
 
                 </div>
             </div>
+
+
+
         </HomeWrapper>
     )
 })
