@@ -65,7 +65,6 @@ export const RoomItemWrapper = styled.div`
       margin-right: -2px;
       color: #00848A;
     }
-   
   }
   
   

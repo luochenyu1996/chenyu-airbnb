@@ -5,8 +5,7 @@ import HomeBanner from "@/views/home/c-cpns/home-banner";
 import {HomeWrapper} from "@/views/home/style";
 import {fetchHomeDataAction} from "@/store/modules/home";
 import SectionHeader from "components/section-header";
-import RoomItem from "components/room-item";
-import {Rating} from "@mui/material";
+import SectionRooms from "components/section-rooms";
 
 
 
@@ -29,17 +28,8 @@ const Home = memo(() => {
             <HomeBanner/>
             <div className="content">
                 <div className='good-price'>
-                    <SectionHeader title={goodPriceInfo.title}></SectionHeader>
-                    <ul className='room-list'>
-                        {
-                            goodPriceInfo.list?.slice(0,8)?.map(item => {
-                                return (
-                                    <RoomItem itemData={item} key={item.id}/>
-                                )
-                            })
-                        }
-                    </ul>
-
+                    <SectionHeader title={goodPriceInfo.title}/>
+                    <SectionRooms roomList={goodPriceInfo.list}/>
                 </div>
             </div>
 
