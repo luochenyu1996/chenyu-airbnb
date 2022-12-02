@@ -11,8 +11,9 @@ import SectionRooms from "components/section-rooms";
 
 const Home = memo(() => {
     // 从redux中获取数据
-    const {goodPriceInfo} = useSelector((state) => ({
-        goodPriceInfo: state.home.goodPriceInfo
+    const {goodPriceInfo,highScoreInfo} = useSelector((state) => ({
+        goodPriceInfo: state.home.goodPriceInfo,
+        highScoreInfo: state.home.highScoreInfo
     }), shallowEqual)
 
 
@@ -31,6 +32,14 @@ const Home = memo(() => {
                     <SectionHeader title={goodPriceInfo.title}/>
                     <SectionRooms roomList={goodPriceInfo.list}/>
                 </div>
+                <div className='high-score'>
+                    <SectionHeader title={highScoreInfo.title}  subtitle={highScoreInfo.subtitle} />
+                    <SectionRooms roomList={highScoreInfo.list}/>
+
+                </div>
+
+
+
             </div>
 
 
