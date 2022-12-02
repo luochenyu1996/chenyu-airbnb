@@ -9,3 +9,10 @@ export  function getHomeGoodPriceData(){
 }
 
 
+export  function getHomeHighScoreData(){
+    return chenyuRequest.get({
+        url:"/home/highscore"
+    })
+}
+
+
