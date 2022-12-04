@@ -19,7 +19,7 @@ const RoomItem = memo((props) => {
 
                 <div className='desc'>
                     {
-                        itemData.verify_info.messages.join("-")
+                        itemData.verify_info.messages.join("·")
                     }
                 </div>
 

@@ -3,11 +3,15 @@ import styled from "styled-components";
 export const RoomItemWrapper = styled.div`
   box-sizing: border-box;
   width: ${props => props.itemWidth};
-  //width: 25%;
   padding: 8px;
   margin: 8px 0;
+  // flex-shrink 的作用
+  flex-shrink: 0;
 
   .inner {
+    //display: flex;
+    //flex-flow: wrap;
+    //align-items: flex-end;
     width: 100%;
   }
 
@@ -39,7 +43,7 @@ export const RoomItemWrapper = styled.div`
     font-size: 16px;
     font-weight: 700;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis;  //内容溢出样式
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -49,7 +53,7 @@ export const RoomItemWrapper = styled.div`
     margin: 8px 0;
   }
 
-  .button {
+  .button { 
     display: flex;
     align-items: center;
     font-size: 12px;
@@ -61,6 +65,7 @@ export const RoomItemWrapper = styled.div`
     }
     // 这个属性根据 MUI 的源码得出
     .MuiRating-icon {
+      
       font-size: 12px;
       margin-right: -2px;
       color: #00848A;
