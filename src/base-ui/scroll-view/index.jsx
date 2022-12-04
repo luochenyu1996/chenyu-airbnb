@@ -9,27 +9,31 @@ const ScrollView = memo((props) => {
     const [showLeft, setShowLeft] = useState(false)
     const [showRight, setShowRight] = useState(false)
     const [posIndex, setPosIndex] = useState(0)
-    const  totalDistanceRef=useRef()
 
-
+    // 这两个 ref 是不一样的
+    const totalDistanceRef = useRef()
     // 组件渲染完毕后，判断是否显示右侧按钮 useEffect() 在组件渲染完成后 才会调用
-    const scrollContentRef=useRef()  //这个函数用来拿组件
-    useEffect(()=>{
-        // 一共可以滚动的宽度
+    const scrollContentRef = useRef()  //这个函数用来拿组件
+    useEffect(() => {
+        //scrollWidth clientWidth 是元素固有的只读属性
+        // 一共可以滚动的宽度,包含隐藏的宽度
         const scrollWidth = scrollContentRef.current.scrollWidth
-        // 本身占据的宽度
+        // 当前显示内容占据的宽度
         const clientWidth = scrollContentRef.current.clientWidth
         // 可滚动的跨度
-        const totalDistance=scrollWidth-clientWidth
-        totalDistanceRef.current=totalDistance
-        setShowRight(totalDistance>0)
-    },[props.children])
+        const totalDistance = scrollWidth - clientWidth
+        totalDistanceRef.current = totalDistance
+        setShowRight(totalDistance > 0)
+    }, [props.children])
 
     /** 事件处理的逻辑 */
     function controlClickHandle(isRight) {
-        const newIndex = isRight ? posIndex + 1: posIndex - 1
+        // 左按钮 -1 ，右按钮 +1
+        const newIndex = isRight ? posIndex + 1 : posIndex - 1
+        //取出下一 tap
         const newEl = scrollContentRef.current.children[newIndex]
         const newOffsetLeft = newEl.offsetLeft
+        //使用transform 做滚动样式
         scrollContentRef.current.style.transform = `translate(-${newOffsetLeft}px)`
         setPosIndex(newIndex)
         // 是否继续显示右侧的按钮
@@ -38,22 +42,26 @@ const ScrollView = memo((props) => {
     }
 
 
-
     return (
         <ScrollViewWrapper>
-            {/* 左侧按钮 */}
-            <div className='control left'>
-                <IconArrowLeft/>
-            </div>
+            {
+                showLeft &&
+                <div className='control left' onClick={e => controlClickHandle(false)}>
+                    <IconArrowLeft/>
+                </div>
+            }
 
-            {/* 右侧按钮 */}
-            <div className='control right'>
-                <IconArrowRight/>
-            </div>
+            {
+                showRight &&
+                <div className='control right' onClick={e => controlClickHandle(true)}>
+                    <IconArrowRight/>
+                </div>
+            }
+
 
             <div className='scroll'>
-                <div className='scroll-content' ref={scrollContentRef }>
-                   {/* <ScrollView>children 接收这里的内容</ScrollView>  */}
+                <div className='scroll-content' ref={scrollContentRef}>
+                    {/* todo <ScrollView>children 接收这里的内容</ScrollView>  */}
                     {props.children}
                 </div>
 
