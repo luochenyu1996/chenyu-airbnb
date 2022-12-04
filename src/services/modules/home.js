@@ -22,4 +22,17 @@ export  function  getHomeDiscountData(){
     })
 }
 
+export  function   getHomePlusData(){
+    return chenyuRequest.get({
+        url: "/home/plus"
+    })
+
+}
+
+export function getHomeYearningData() {
+    return chenyuRequest.get({
+        url: "/home/longfor"
+    })
+}
+
 

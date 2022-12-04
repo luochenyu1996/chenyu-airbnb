@@ -1,5 +1,11 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import {getHomeDiscountData, getHomeGoodPriceData, getHomeHighScoreData} from "@/services";
+import {
+    getHomeDiscountData,
+    getHomeGoodPriceData,
+    getHomeHighScoreData,
+    getHomePlusData,
+    getHomeYearningData
+} from "@/services";
 
 
 export const fetchHomeDataAction = createAsyncThunk(
@@ -8,13 +14,18 @@ export const fetchHomeDataAction = createAsyncThunk(
             dispatch(changeGoodPriceInfoAction(res))
         })
 
-
         getHomeHighScoreData().then(res => {
             dispatch(changeHighScoreInfoAction(res))
         })
 
         getHomeDiscountData().then(res => {
             dispatch(changeDiscountInfoAction(res))
+        })
+        getHomePlusData().then(res => {
+            dispatch(changePlusInfoAction(res))
+        })
+        getHomeYearningData().then(res => {
+            dispatch(changeYearningInfoAction(res))
         })
     })
 
@@ -23,7 +34,9 @@ const homeSlice = createSlice({
         initialState: {
             goodPriceInfo: {},
             highScoreInfo: {},
-            discountInfo: {}
+            discountInfo: {},
+            yearningInfo:{}
+
         },
         reducers: {
             changeGoodPriceInfoAction(state, {payload}) {
@@ -34,14 +47,16 @@ const homeSlice = createSlice({
             },
             changeDiscountInfoAction(state, {payload}) {
                 state.discountInfo = payload
-            }
+            },
+            changePlusInfoAction(state, {payload}) {
+                state.plusInfo = payload
+            },
+            changeYearningInfoAction(state, {payload}) {
+                state.yearningInfo = payload
+            },
         },
         extraReducers: {
-            // todo 代码进行重构到上面去了
-            // [fetchHomeDataAction.fulfilled](state, {payload}) {
-            //     state.goodPriceInfo = payload
-            //
-            // }
+
         }
 
 
@@ -53,6 +68,9 @@ export const {
     changeGoodPriceInfoAction,
     changeHighScoreInfoAction,
     changeDiscountInfoAction,
+    changePlusInfoAction,
+    changeYearningInfoAction,
+
 } = homeSlice.actions
 
 export default homeSlice.reducer

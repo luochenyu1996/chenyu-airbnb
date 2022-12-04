@@ -1,5 +1,4 @@
 export function  isNotEmptyObj(obj){
-    //  console.log("isNotempty 输出测试")
-    // console.log(!!Object.keys(obj).length)
+    if(null===obj||undefined===obj) return false
     return  !!Object.keys(obj).length
 }
