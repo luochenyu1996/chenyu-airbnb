@@ -15,4 +15,11 @@ export  function getHomeHighScoreData(){
     })
 }
 
+export  function  getHomeDiscountData(){
+
+    return chenyuRequest.get({
+        url:"/home/discount"
+    })
+}
+
 
