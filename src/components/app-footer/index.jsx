@@ -1,6 +1,7 @@
 import React, {memo} from "react";
 
 import {FooterWrapper} from "components/app-footer/style";
+// todo  footer的数据这里只做了静态的
 import footerData from '@/assets/data/footer.json'
 
 const AppFooter = memo(() => {
