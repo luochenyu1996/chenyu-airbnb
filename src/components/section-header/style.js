@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const SectionHeaderWrapper = styled.div`
+  
+  margin-top: 25px;
   color: #222;
 
   .title {

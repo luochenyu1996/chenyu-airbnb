@@ -4,11 +4,12 @@ import {HashRouter} from "react-router-dom";
 
 
 import {Provider} from "react-redux";
+import "./assets/css/reset.less"
 import App from './App' ;
 import "antd/dist/antd.less"
 import "./assets/css/index.less";
 import "normalize.css"
-import "./assets/css/reset.less"
+
 import Store from "./store";
 import {ThemeProvider} from "styled-components";
 import theme from "@/assets/theme";
