@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const EntireFilterWrapper = styled.div`
-  position: fixed;
+  //position: relative;
   z-index: 99;
   left: 0;
   right: 0;

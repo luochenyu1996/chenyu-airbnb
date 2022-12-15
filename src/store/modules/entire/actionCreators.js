@@ -18,18 +18,32 @@ export const changeRoomListAction = (roomList) => ({
 
 export const changeTotalCountAction = (totalCount) => ({
         type: actionTypes.CHANGE_TOTAL_COUNT,
-        totalCount
+        totalCount,
     }
 )
 
 
-export const fetchRoomListAction=()=>{
+export const  changeIsLoadingAction=(isLoading)=>({
+    type: actionTypes.CHANGE_IS_LOADING,
+    isLoading,
 
 
-    return   dispatch =>{
-        getEntireRoomList(0).then(res=>{
-            console.log(res)
-        })
+})
+
+
+export const fetchRoomListAction = () => {
+    const PAGE_CAPACITY = 20
+
+    return async (dispatch, getState) => {
+        const currentPage = getState().entire.currentPage
+        dispatch(changeIsLoadingAction(true))
+        const res = await getEntireRoomList(currentPage * PAGE_CAPACITY)
+        dispatch(changeIsLoadingAction(false))
+        // console.log(res)
+        const roomList = res.list
+        const totalCount = res.totalCount
+        dispatch(changeRoomListAction(roomList))
+        dispatch(changeTotalCountAction(totalCount))
 
     }
 
