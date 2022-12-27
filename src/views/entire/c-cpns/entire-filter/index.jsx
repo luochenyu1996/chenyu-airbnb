@@ -8,7 +8,7 @@ const EntireFilter = memo(() => {
     const [selectItems,setSelectItems]=useState([])
 
     function itemClickHandle(item){
-        console.log(item)
+
         const newItems=[...selectItems]
         if(newItems.includes(item)){
             const  arrIndex=newItems.findIndex(delItem=> delItem===item)

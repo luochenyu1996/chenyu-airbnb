@@ -4,18 +4,18 @@ import PropTypes from "prop-types";
 import styledComponentsBrowserEsm from "styled-components/dist/styled-components.browser.esm";
 
 const Indicator = memo((props) => {
-    const {selectIndex} = props
+    const {selectIndex=0} = props
     const contentRef = useRef()
 
     useEffect(() => {
 
-        // console.log(props)
+
         const selectItemEl = contentRef.current.children[selectIndex]
-        console.log(selectIndex, selectItemEl)
+
         //拿到offsetLeft 需要有定位元素
         const itemOffsetLeft = selectItemEl.offsetLeft
         const itemWidth = selectItemEl.clientWidth
-        console.log(itemOffsetLeft, itemWidth)
+
         // 2. content的高度
         const contentWidth = contentRef.current.clientWidth
         const contentScroll = contentRef.current.scrollWidth
@@ -34,7 +34,7 @@ const Indicator = memo((props) => {
         }
 
         contentRef.current.style.transform = `translate(${-distance}px)`
-        // console.log(itemOffsetLeft,itemWidth,contentWidth)
+
 
 
     }, [selectIndex])

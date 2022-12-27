@@ -27,8 +27,6 @@ const Home = memo(() => {
     useEffect(() => {
         dispatch(fetchHomeDataAction("###"))
     }, [dispatch])
-    console.log(plusInfo)
-
     return (
         <HomeWrapper>
             <HomeBanner/>
